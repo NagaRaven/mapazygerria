@@ -1,0 +1,204 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--color-space);
+}
+
+.app-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: var(--color-space);
+}
+
+.app-loading__text {
+  font-family: var(--font-title);
+  font-size: 14px;
+  color: var(--color-cyan);
+  letter-spacing: 0.25em;
+  animation: loadingPulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes loadingPulse {
+  from { opacity: 0.3; }
+  to { opacity: 1; text-shadow: 0 0 20px var(--color-cyan); }
+}
+
+/* Cabecera */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background: linear-gradient(180deg, rgba(0, 13, 36, 0.98) 0%, rgba(0, 9, 26, 0.92) 100%);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+  gap: 12px;
+  flex-wrap: wrap;
+  z-index: 100;
+}
+
+.app-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.app-header__logo {
+  font-size: 28px;
+  color: var(--color-cyan);
+  text-shadow: var(--glow-cyan);
+  line-height: 1;
+  animation: logoRotate 8s linear infinite;
+}
+
+@keyframes logoRotate {
+  0%, 100% { text-shadow: 0 0 10px var(--color-cyan), 0 0 20px var(--color-cyan); }
+  50% { text-shadow: 0 0 6px var(--color-cyan), 0 0 30px var(--color-cyan), 0 0 50px var(--color-cyan); }
+}
+
+.app-header__title {
+  font-family: var(--font-title);
+  font-size: clamp(18px, 4vw, 28px);
+  font-weight: 900;
+  color: var(--color-text-bright);
+  letter-spacing: 0.3em;
+  line-height: 1;
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+}
+
+.app-header__subtitle {
+  display: block;
+  font-family: var(--font-title);
+  font-size: 8px;
+  color: var(--color-text-dim);
+  letter-spacing: 0.2em;
+  margin-top: 3px;
+}
+
+.app-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.app-header__error {
+  font-family: var(--font-title);
+  font-size: 9px;
+  color: #ff4500;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border: 1px solid rgba(255, 69, 0, 0.3);
+  border-radius: 2px;
+  background: rgba(255, 69, 0, 0.06);
+}
+
+.app-header__user {
+  font-family: var(--font-title);
+  font-size: 10px;
+  color: var(--color-green);
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.4);
+}
+
+.app-header__btn {
+  font-family: var(--font-title);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  padding: 7px 14px;
+  border-radius: 2px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.app-header__btn--login {
+  background: transparent;
+  border: 1px solid var(--color-cyan);
+  color: var(--color-cyan);
+}
+
+.app-header__btn--login:hover {
+  background: rgba(0, 212, 255, 0.08);
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.2);
+}
+
+.app-header__btn--place {
+  background: transparent;
+  border: 1px solid #ffd700;
+  color: #ffd700;
+}
+
+.app-header__btn--place:hover {
+  background: rgba(255, 215, 0, 0.08);
+}
+
+.app-header__btn--active {
+  background: rgba(255, 69, 0, 0.1);
+  border-color: #ff4500;
+  color: #ff4500;
+}
+
+.app-header__btn--logout {
+  background: transparent;
+  border: 1px solid rgba(90, 122, 148, 0.4);
+  color: #5a7a94;
+}
+
+.app-header__btn--logout:hover {
+  border-color: #ff4500;
+  color: #ff4500;
+}
+
+/* Área principal */
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 16px;
+}
+
+/* Pie de página */
+.app-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 24px;
+  background: rgba(0, 9, 26, 0.9);
+  border-top: 1px solid rgba(0, 212, 255, 0.1);
+  font-family: var(--font-title);
+  font-size: 8px;
+  color: var(--color-text-dim);
+  letter-spacing: 0.15em;
+  flex-shrink: 0;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .app-header {
+    padding: 10px 14px;
+  }
+
+  .app-main {
+    padding: 8px;
+  }
+
+  .app-header__logo {
+    font-size: 22px;
+  }
+
+  .app-footer {
+    padding: 6px 14px;
+    justify-content: center;
+  }
+
+  .app-footer span:first-child {
+    display: none;
+  }
+}
