@@ -1,23 +1,21 @@
 version: '3.8'
 
 services:
-  sqlserver:
-    image: mcr.microsoft.com/mssql/server:2022-latest
-    container_name: zygerria_sqlserver
-    environment:
-      ACCEPT_EULA: "Y"
-      SA_PASSWORD: "ZygerriaMap2024!"
-      MSSQL_PID: "Express"
+  backend:
+    build: ./backend
+    container_name: zygerria_backend
+    restart: always
     ports:
-      - "1433:1433"
+      - "3001:3001"
+    environment:
+      PORT: 3001
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-24h}
+      FRONTEND_URL: ${FRONTEND_URL}
     volumes:
-      - sqlserver_data:/var/opt/mssql
-    healthcheck:
-      test: /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "ZygerriaMap2024!" -Q "SELECT 1" || exit 1
-      interval: 10s
-      timeout: 5s
-      retries: 10
-      start_period: 30s
+      - db_data:/app/data
+      - uploads_data:/app/uploads
 
 volumes:
-  sqlserver_data:
+  db_data:
+  uploads_data:
