@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { getImageUrl } from '../../services/api';
 import './AddPointModal.css';
 
 const POINT_COLORS = [
@@ -49,7 +50,7 @@ const AddPointModal = ({ position, point, onSave, onClose }) => {
         activities: point.activities || '',
         color: point.color || '',
       });
-      if (point.image_url) setImagePreview(point.image_url);
+      if (point.image_url) setImagePreview(getImageUrl(point.image_url));
     }
   }, [point]);
 

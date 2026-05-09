@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { getImageUrl } from '../../services/api';
 import './FuturisticModal.css';
 
 const FACTION_COLORS = {
@@ -118,7 +119,7 @@ const FuturisticModal = ({ point, onClose }) => {
             {point.image_url && (
               <div className="modal__image-frame">
                 <img
-                  src={point.image_url}
+                  src={getImageUrl(point.image_url)}
                   alt={`Vista de ${point.name}`}
                   className="modal__image"
                 />
