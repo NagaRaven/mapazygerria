@@ -1,5 +1,8 @@
 providers = ["node"]
 
+[phases.setup]
+nixPkgs = ["nodejs_20", "python3"]
+
 [phases.install]
 cmds = [
   "npm --prefix frontend install --include=dev",
