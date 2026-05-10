@@ -48,7 +48,7 @@ const LoginModal = ({ onClose }) => {
 
         <div className="login-modal__header">
           <div className="login-modal__icon">◈</div>
-          <h2 className="login-modal__title">ACCESO IMPERIAL</h2>
+          <h2 className="login-modal__title">ACCESO INTELIGENCIA</h2>
           <p className="login-modal__subtitle">Sistema de control de Zygerria</p>
         </div>
 
