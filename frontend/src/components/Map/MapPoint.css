@@ -6,8 +6,8 @@
 
 .map-point__marker {
   position: relative;
-  width: 40px;
-  height: 40px;
+  width: 26px;
+  height: 26px;
   background: transparent;
   border: none;
   padding: 0;
@@ -19,52 +19,50 @@
 
 .map-point__core {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: var(--point-color, #00d4ff);
   box-shadow:
-    0 0 10px var(--point-color, #00d4ff),
-    0 0 20px var(--point-color, #00d4ff),
-    0 0 35px var(--point-color, #00d4ff);
+    0 0 5px var(--point-color, #00d4ff),
+    0 0 10px var(--point-color, #00d4ff);
   z-index: 2;
+  opacity: 0.85;
 }
 
 .map-point__ring {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
-  border: 2px solid var(--point-color, #00d4ff);
+  border: 1.5px solid var(--point-color, #00d4ff);
   opacity: 0;
-  animation: pointPulse 2s ease-out infinite;
 }
 
-.map-point__ring--delay {
-  animation-delay: 1s;
+.map-point__marker--clicked .map-point__ring {
+  animation: pointPulse 0.8s ease-out forwards;
+}
+
+.map-point__marker--clicked .map-point__ring--delay {
+  animation-delay: 0.2s;
 }
 
 @keyframes pointPulse {
   0% {
     transform: scale(0.5);
-    opacity: 0.8;
+    opacity: 0.9;
   }
   100% {
-    transform: scale(2.5);
+    transform: scale(2.8);
     opacity: 0;
   }
 }
 
 .map-point__marker:hover .map-point__core {
+  opacity: 1;
   box-shadow:
-    0 0 8px var(--point-color, #00d4ff),
-    0 0 16px var(--point-color, #00d4ff),
-    0 0 30px var(--point-color, #00d4ff),
-    0 0 50px var(--point-color, #00d4ff);
-}
-
-.map-point__marker:hover .map-point__ring {
-  animation-duration: 1s;
+    0 0 7px var(--point-color, #00d4ff),
+    0 0 16px var(--point-color, #00d4ff);
 }
 
 .map-point__label {
