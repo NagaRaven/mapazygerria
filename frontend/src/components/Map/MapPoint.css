@@ -37,23 +37,20 @@
   border-radius: 50%;
   border: 1.5px solid var(--point-color, #00d4ff);
   opacity: 0;
+  animation: pointPulse 2.4s ease-out infinite;
 }
 
-.map-point__marker--clicked .map-point__ring {
-  animation: pointPulse 0.8s ease-out forwards;
-}
-
-.map-point__marker--clicked .map-point__ring--delay {
-  animation-delay: 0.2s;
+.map-point__ring--delay {
+  animation-delay: 1.2s;
 }
 
 @keyframes pointPulse {
   0% {
-    transform: scale(0.5);
-    opacity: 0.9;
+    transform: scale(0.6);
+    opacity: 0.6;
   }
   100% {
-    transform: scale(2.8);
+    transform: scale(1.9);
     opacity: 0;
   }
 }

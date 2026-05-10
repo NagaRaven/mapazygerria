@@ -26,16 +26,11 @@ const getPointColor = (point) => {
 
 const MapPoint = ({ point, onClick, isAdmin, onEdit, onDelete }) => {
   const [showAdminMenu, setShowAdminMenu] = useState(false);
-  const [clicked, setClicked] = useState(false);
   const color = getPointColor(point);
 
   const handleClick = (e) => {
     e.stopPropagation();
-    if (!showAdminMenu) {
-      setClicked(true);
-      setTimeout(() => setClicked(false), 1100);
-      onClick(point);
-    }
+    if (!showAdminMenu) onClick(point);
   };
 
   const handleEditClick = (e) => {
@@ -60,7 +55,7 @@ const MapPoint = ({ point, onClick, isAdmin, onEdit, onDelete }) => {
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
     >
       <motion.button
-        className={`map-point__marker${clicked ? ' map-point__marker--clicked' : ''}`}
+        className="map-point__marker"
         style={{ '--point-color': color }}
         onClick={handleClick}
         onContextMenu={(e) => {
