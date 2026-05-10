@@ -14,6 +14,8 @@ const FACTION_COLORS = {
   'Casa Virana':          '#e67e22',
   'Casa Ferronix':        '#708090',
   'Casa Krysen':          '#008080',
+  'Casa Nabila':          '#e91e8c',
+  'Casa Sayid':           '#c8a84b',
   'Casa Shanek':          '#dc143c',
   'Iglesia del Sol Negro':'#8b0000',
 };
