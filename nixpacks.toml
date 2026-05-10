@@ -2,8 +2,8 @@ providers = ["node"]
 
 [phases.install]
 cmds = [
-  "npm --prefix frontend install",
-  "npm --prefix backend install"
+  "npm --prefix frontend install --include=dev",
+  "npm --prefix backend install --omit=dev"
 ]
 
 [phases.build]
