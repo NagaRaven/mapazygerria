@@ -6,9 +6,10 @@ const PORT = process.env.PORT || 3001;
 const start = async () => {
   try {
     await getPool();
-    console.log('Conexión a SQL Server establecida');
+    const dbType = process.env.DB_TYPE === 'sqlite' ? 'SQLite' : 'SQL Server';
+    console.log(`Conexión a ${dbType} establecida`);
     app.listen(PORT, () => {
-      console.log(`Servidor Zygerria Map corriendo en http://localhost:${PORT}`);
+      console.log(`Servidor Zygerria Map corriendo en puerto ${PORT}`);
     });
   } catch (error) {
     console.error('Error al iniciar el servidor:', error);
