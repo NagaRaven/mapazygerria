@@ -116,7 +116,7 @@ const AppContent = () => {
               className="app-header__btn app-header__btn--login"
               onClick={() => setShowLogin(true)}
             >
-              ACCESO IMPERIAL
+              ACCESO INTELIGENCIA
             </button>
           )}
         </div>
