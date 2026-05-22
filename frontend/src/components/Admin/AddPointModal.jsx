@@ -25,6 +25,9 @@ const FACTIONS = [
   'Casa Nabila',
   'Casa Sayid',
   'Casa Shanek',
+  'Casa Jaresh',
+  'Casa Sokharis',
+  'Casa Amenti',
   'Iglesia del Sol Negro',
 ];
 
